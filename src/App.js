@@ -20,8 +20,9 @@ class App extends Component {
     this.setState({ items: tempData.items });
   };
 
-  deleteItem(id) {
-    console.log(id);
+  deleteItem(listItem) {
+    tempData.items = tempData.items.filter((item) => item !== listItem);
+    this.setState({ items: tempData.items });
   }
 
   storeItem = (itemName) => {
@@ -41,7 +42,7 @@ class App extends Component {
           </button>
           <button
             className="delete btn btn-danger list__buttons--delete"
-            onClick={() => this.deleteItem(id)}
+            onClick={() => this.deleteItem(item)}
           >
             <i className="fa fa-trash"></i>
           </button>
