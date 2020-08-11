@@ -3,6 +3,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../node_modules/font-awesome/css/font-awesome.css";
 import "../src/css/main.css";
 import InputField from "./components/Input Field/InputField";
+import Item from "./components/Item/Item";
 
 const tempData = {
   items: [],
@@ -20,36 +21,20 @@ class App extends Component {
     this.setState({ items: tempData.items });
   };
 
-  deleteItem(listItem) {
+  deleteItem = (listItem) => {
     tempData.items = tempData.items.filter((item) => item !== listItem);
     this.setState({ items: tempData.items });
-  }
+  };
 
   storeItem = (itemName) => {
     tempData.itemName = itemName;
   };
 
-  generateListItem(item) {
+  generateListItem = (item) => {
     if (item === "") return;
-    const id = tempData.ID();
 
-    return (
-      <li className="list-group-item  m-2 font-weight-light display-4" key={id}>
-        <p>{item}</p>
-        <div className="list__buttons">
-          <button className="delete btn btn-success list__buttons--done">
-            <i className="fa fa-check-circle"></i>
-          </button>
-          <button
-            className="delete btn btn-danger list__buttons--delete"
-            onClick={() => this.deleteItem(item)}
-          >
-            <i className="fa fa-trash"></i>
-          </button>
-        </div>
-      </li>
-    );
-  }
+    return <Item deleteItem={this.deleteItem} id={tempData.ID()} item={item} />;
+  };
 
   render() {
     return (
