@@ -8,6 +8,7 @@ import List from "./components/List/List";
 const App = () => {
   return (
     <div className="container appContainer">
+      <h1 className="appContainer__title">PRODUCTIVITY APP</h1>
       <InputField />
       <List />
     </div>

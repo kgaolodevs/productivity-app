@@ -6,6 +6,13 @@ body {
 .appContainer {
   margin-top: 7rem;
 
+  &__title {
+    font-family: "Druk Text Wide";
+    color: #fff;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
   .list {
     li {
       display: flex;
