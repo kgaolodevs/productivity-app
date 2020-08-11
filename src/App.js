@@ -20,22 +20,29 @@ class App extends Component {
     this.setState({ items: tempData.items });
   };
 
+  deleteItem(id) {
+    console.log(id);
+  }
+
   storeItem = (itemName) => {
     tempData.itemName = itemName;
   };
 
   generateListItem(item) {
+    if (item === "") return;
+    const id = tempData.ID();
+
     return (
-      <li
-        className="list-group-item  m-2 font-weight-light display-4"
-        key={tempData.ID()}
-      >
+      <li className="list-group-item  m-2 font-weight-light display-4" key={id}>
         <p>{item}</p>
         <div className="list__buttons">
           <button className="delete btn btn-success list__buttons--done">
             <i className="fa fa-check-circle"></i>
           </button>
-          <button className="delete btn btn-danger list__buttons--delete">
+          <button
+            className="delete btn btn-danger list__buttons--delete"
+            onClick={() => this.deleteItem(id)}
+          >
             <i className="fa fa-trash"></i>
           </button>
         </div>
