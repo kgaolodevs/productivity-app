@@ -7,4 +7,24 @@ body {
 .appContainer {
   margin-top: 7rem;
 }
+
+.appContainer .list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.appContainer .list li .list__buttons {
+  margin-top: -0.8rem;
+}
+
+.appContainer .list li .list__buttons--done {
+  margin-right: 1rem;
+}
 /*# sourceMappingURL=main.css.map */

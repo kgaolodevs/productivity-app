@@ -5,4 +5,19 @@ body {
 
 .appContainer {
   margin-top: 7rem;
+
+  .list {
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .list__buttons {
+        margin-top: -0.8rem;
+        &--done {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
 }
