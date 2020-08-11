@@ -1,15 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
 
-const InputField = () => {
+const InputField = ({ addListItem, textInput }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addListItem();
+  };
+
   return (
-    <div className="input-group mb-3 input-group-lg">
-      <input type="text" className="form-control" placeholder="Add item.." />
+    <form className="input-group mb-3 input-group-lg" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Add item.."
+        onChange={(e) => textInput(e.target.value)}
+      />
       <div className="input-group-append">
-        <button className="btn btn-success" type="button">
+        <button className="btn btn-success" type="submit">
           Add
         </button>
       </div>
-    </div>
+    </form>
   );
 };
 
