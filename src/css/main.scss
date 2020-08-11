@@ -28,3 +28,10 @@ body {
     }
   }
 }
+
+.completed {
+  opacity: 0.5;
+  p {
+    text-decoration: line-through;
+  }
+}

@@ -34,4 +34,12 @@ body {
 .appContainer .list li .list__buttons--done {
   margin-right: 1rem;
 }
+
+.completed {
+  opacity: 0.5;
+}
+
+.completed p {
+  text-decoration: line-through;
+}
 /*# sourceMappingURL=main.css.map */

@@ -9,12 +9,13 @@ const tempData = {
   items: [],
   itemName: "",
   ID: function () {
-    return "_" + Math.random().toString(36).substr(2, 9);
+    return Math.random().toString(36).substr(2, 9);
   },
+  itemCompleted: false,
 };
 
 class App extends Component {
-  state = { items: [] };
+  state = { items: [], itemCompleted: false };
 
   addItem = (e) => {
     tempData.items.push(tempData.itemName);
@@ -30,10 +31,33 @@ class App extends Component {
     tempData.itemName = itemName;
   };
 
+  handleComplete = () => {
+    if (tempData.itemCompleted) {
+      this.setState({ itemCompleted: false });
+    } else {
+      this.setState({ itemCompleted: true });
+    }
+  };
+
+  generateItemClasses = () => {
+    if (!this.state.itemCompleted)
+      return "list-group-item  m-2 font-weight-light display-4";
+
+    return "list-group-item  m-2 font-weight-light display-4 completed";
+  };
+
   generateListItem = (item) => {
     if (item === "") return;
 
-    return <Item deleteItem={this.deleteItem} id={tempData.ID()} item={item} />;
+    return (
+      <Item
+        deleteItem={this.deleteItem}
+        key={tempData.ID()}
+        item={item}
+        itemDone={this.handleComplete}
+        itemClasses={this.generateItemClasses}
+      />
+    );
   };
 
   render() {
@@ -46,7 +70,6 @@ class App extends Component {
             return this.generateListItem(item);
           })}
         </ul>
-        ;
       </div>
     );
   }
