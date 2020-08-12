@@ -2,15 +2,9 @@ import React from "react";
 
 const Item = ({ item, deleteItem, itemDone, itemClasses }) => {
   return (
-    <li className={itemClasses()}>
+    <li className="list-group-item  m-2 font-weight-light display-4">
       <p>{item}</p>
       <div className="list__buttons">
-        <button
-          className="delete btn btn-success list__buttons--done"
-          onClick={itemDone}
-        >
-          <i className="fa fa-check-circle"></i>
-        </button>
         <button
           className="delete btn btn-danger list__buttons--delete"
           onClick={() => deleteItem(item)}
